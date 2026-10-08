@@ -3,29 +3,157 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Let's Sip</title>
-<style>
-  :root { --bg:#FDF6EC; --text:#1F3A2E; --muted:#5b6b62; --accent:#1F6B4A; --card:#fff; --line:#e7dccb; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#1C1C1E; --text:#EFE8DC; --muted:#a9a397; --accent:#7CC39B; --card:#26262a; --line:#3a3a3f; } }
-  body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Rounded", system-ui, sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  nav { display:flex; gap:16px; margin-bottom:24px; font-weight:600; flex-wrap:wrap; }
-  a { color: var(--accent); }
-  h1 { font-size: 30px; line-height:1.2; }
-  h2 { margin-top: 32px; font-size: 21px; }
-  table { border-collapse: collapse; width: 100%; background: var(--card); font-size: 15px; }
-  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
-</style>
+<title>Let's Sip — Find your next sip</title>
+<meta name="description" content="Let's Sip is a social coffee and matcha app: discover spots near you, check in, collect visit cards, chat with people at the shop, and grab a sip with friends. Built privacy-first.">
+<meta name="theme-color" content="#FBF6EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111A15" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Let's Sip — Find your next sip">
+<meta property="og:description" content="Discover coffee and matcha spots, collect visit cards, and grab a sip with friends. Privacy-first.">
+<meta property="og:image" content="https://letssip.app/assets/shop.jpg">
+<meta property="og:url" content="https://letssip.app/">
+<link rel="icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="site.css">
 </head>
-<body><main>
-<nav><a href="index.html">Let's Sip</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
-<h1>Let's Sip</h1>
-<p>A social coffee and matcha app: find spots near you, check in, share what you're sipping, and chat with people at the shop.</p>
-<h2>Help &amp; contact</h2>
-<p>Questions, a problem with your account, or something to report? Email <strong><a href="mailto:alexis@becerramail.com">alexis@becerramail.com</a></strong>. We review reports within 24 hours.</p>
-<ul><li><strong>Delete your account:</strong> in the app, go to Profile → Settings → Delete account.</li><li><strong>Report a post, comment, message or person:</strong> tap ••• or swipe on it and choose Report.</li><li><strong>Block someone:</strong> from their profile or any of their posts.</li></ul>
-<h2>Legal</h2>
-<ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul>
-</main></body>
+<body>
+
+<header class="nav">
+  <a class="brand" href="./">
+    <picture>
+      <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="assets/logo.png" alt="" width="36" height="36">
+    </picture>
+    <span>Let's Sip</span>
+  </a>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#shops">For shops</a>
+    <a href="support.html">Help</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Coffee &amp; matcha, together</p>
+      <h1>Find your next sip.</h1>
+      <p class="lede">Discover local coffee and matcha spots, see who's there right now, collect visit cards, and grab a sip with friends. Built privacy-first, so your location stays yours.</p>
+      <div class="cta-row">
+        <span class="badge-soon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>
+          Coming soon to the App Store
+        </span>
+        <a class="link-arrow" href="#features">See how it works →</a>
+      </div>
+    </div>
+    <div class="hero-phones" aria-hidden="true">
+      <img class="phone phone-back" src="assets/map.jpg" alt="" width="320" height="696">
+      <img class="phone phone-front" src="assets/shop.jpg" alt="" width="320" height="696">
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <article class="feature">
+      <img class="phone" src="assets/map.jpg" alt="Map of coffee shops nearby with people-here-now counts" width="320" height="696" loading="lazy">
+      <div>
+        <p class="eyebrow">Explore</p>
+        <h2>Every coffee &amp; matcha spot near you</h2>
+        <p>Browse a map of local shops, filter for WiFi, outlets or local spots only, and see how many people are there right now.</p>
+      </div>
+    </article>
+
+    <article class="feature flip">
+      <img class="phone" src="assets/shop.jpg" alt="A shop page with a visit card showing stamps" width="320" height="696" loading="lazy">
+      <div>
+        <p class="eyebrow">Check in</p>
+        <h2>Visit cards that fill up as you go</h2>
+        <p>Check in when you're at a shop and get a stamp. Ten stamps fill a card, and your levels, streaks and passport grow with every visit.</p>
+      </div>
+    </article>
+
+    <article class="feature">
+      <img class="phone" src="assets/chat.jpg" alt="A shop chat with questions about how busy it is" width="320" height="696" loading="lazy">
+      <div>
+        <p class="eyebrow">Shop chats</p>
+        <h2>Ask the people who are there</h2>
+        <p>Every shop has its own chat. Is it busy? Good for studying? Is the seasonal drink worth it? Messages disappear after 24 hours, and you can chat under an alias.</p>
+      </div>
+    </article>
+
+    <article class="feature flip">
+      <img class="phone" src="assets/activity.jpg" alt="A friend's Sip with me invite in Activity" width="320" height="696" loading="lazy">
+      <div>
+        <p class="eyebrow">Sip with me</p>
+        <h2>Grab a coffee with friends</h2>
+        <p>Invite your friends to meet up now or later, and see who's in. Get a heads-up when a friend checks in nearby, only if they choose to share it.</p>
+      </div>
+    </article>
+
+    <article class="feature">
+      <img class="phone" src="assets/recap.jpg" alt="Your week in coffee recap" width="320" height="696" loading="lazy">
+      <div>
+        <p class="eyebrow">Every Sunday</p>
+        <h2>Your week in coffee</h2>
+        <p>New spots you tried, your go-to, first sips and where your friends went, all in one recap worked out right on your phone.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="privacy" class="privacy">
+    <div class="privacy-inner">
+      <p class="eyebrow light">Privacy-first</p>
+      <h2>Social, without giving yourself away</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Your GPS stays on your phone</h3>
+          <p>Check-ins only work at the shop, and Let's Sip never stores your location.</p>
+        </div>
+        <div class="card">
+          <h3>Your history is yours</h3>
+          <p>Your check-in history and weekly recap live only on your iPhone.</p>
+        </div>
+        <div class="card">
+          <h3>You choose who sees you</h3>
+          <p>"Here now" names are off by default. Go private, chat under an alias, or block anyone.</p>
+        </div>
+        <div class="card">
+          <h3>No ads, no tracking</h3>
+          <p>We don't sell or share your data, and photos are stripped of location info before upload.</p>
+        </div>
+      </div>
+      <a class="link-arrow light" href="privacy.html">Read the privacy policy →</a>
+    </div>
+  </section>
+
+  <section id="shops" class="shops">
+    <div>
+      <p class="eyebrow">For coffee shops</p>
+      <h2>Become a Founding Shop</h2>
+      <p>Bring regulars back with free digital visit cards, post specials and events, and see anonymous visit trends. Founding Shops get it all free while we launch, plus a locked-in rate later.</p>
+      <a class="button" href="mailto:support@letssip.app?subject=Founding%20Shop">Get in touch</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>
+    <a class="brand small" href="./">
+      <picture>
+        <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="assets/logo.png" alt="" width="24" height="24">
+      </picture>
+      <span>Let's Sip</span>
+    </a>
+    <p>Made in San Bernardino, California.</p>
+  </div>
+  <nav>
+    <a href="support.html">Help &amp; contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:support@letssip.app">support@letssip.app</a>
+  </nav>
+</footer>
+
+</body>
 </html>

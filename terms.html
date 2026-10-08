@@ -4,22 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Let's Sip Terms of Use</title>
-<style>
-  :root { --bg:#FDF6EC; --text:#1F3A2E; --muted:#5b6b62; --accent:#1F6B4A; --card:#fff; --line:#e7dccb; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#1C1C1E; --text:#EFE8DC; --muted:#a9a397; --accent:#7CC39B; --card:#26262a; --line:#3a3a3f; } }
-  body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Rounded", system-ui, sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  nav { display:flex; gap:16px; margin-bottom:24px; font-weight:600; flex-wrap:wrap; }
-  a { color: var(--accent); }
-  h1 { font-size: 30px; line-height:1.2; }
-  h2 { margin-top: 32px; font-size: 21px; }
-  table { border-collapse: collapse; width: 100%; background: var(--card); font-size: 15px; }
-  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
-</style>
+<meta name="theme-color" content="#FBF6EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111A15" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="site.css">
 </head>
-<body><main>
-<nav><a href="index.html">Let's Sip</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+<body>
+<header class="nav">
+  <a class="brand" href="./">
+    <picture>
+      <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="assets/logo.png" alt="" width="36" height="36">
+    </picture>
+    <span>Let's Sip</span>
+  </a>
+  <nav>
+    <a href="./#features">Features</a>
+    <a href="./#privacy">Privacy</a>
+    <a href="./#shops">For shops</a>
+    <a href="support.html">Help</a>
+  </nav>
+</header>
+<main class="doc">
 <h1>Let's Sip Terms of Use</h1>
 <p><strong>Effective date:</strong> September 28, 2026</p>
 <p>These terms are an agreement between you and Alexis Becerra ("we," "us") about your use of Let's Sip. By creating an account you agree to them and to our <a href="privacy.html">Privacy Policy</a>.</p>
@@ -36,7 +43,7 @@
 <h2>5. Check-ins and chats</h2>
 <p>Check-ins only work at the shop and expire automatically. Shop chats are public to people viewing that shop and are deleted after 24 hours. Coffee shop listings come from Apple Maps; we don't control shops' hours, prices or information.</p>
 <h2>6. Copyright complaints</h2>
-<p>If you believe content on Let's Sip infringes your copyright, email <a href="mailto:alexis@becerramail.com">alexis@becerramail.com</a> with the content's location, your contact details, and a statement that you own the rights. We'll remove infringing content and may close repeat infringers' accounts.</p>
+<p>If you believe content on Let's Sip infringes your copyright, email <a href="mailto:support@letssip.app">support@letssip.app</a> with the content's location, your contact details, and a statement that you own the rights. We'll remove infringing content and may close repeat infringers' accounts.</p>
 <h2>7. Ending your account</h2>
 <p>You can delete your account at any time in Settings → Delete account. We may suspend or end accounts that break these terms.</p>
 <h2>8. Disclaimers and limits</h2>
@@ -48,6 +55,25 @@
 <h2>11. Law</h2>
 <p>These terms are governed by the laws of California, USA.</p>
 <h2>12. Contact</h2>
-<p><a href="mailto:alexis@becerramail.com">alexis@becerramail.com</a><br>Alexis Becerra, San Bernardino, California</p>
-</main></body>
+<p><a href="mailto:support@letssip.app">support@letssip.app</a><br>Alexis Becerra, San Bernardino, California</p>
+</main>
+<footer class="footer">
+  <div>
+    <a class="brand small" href="./">
+      <picture>
+        <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="assets/logo.png" alt="" width="24" height="24">
+      </picture>
+      <span>Let's Sip</span>
+    </a>
+    <p>Made in San Bernardino, California.</p>
+  </div>
+  <nav>
+    <a href="support.html">Help &amp; contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:support@letssip.app">support@letssip.app</a>
+  </nav>
+</footer>
+</body>
 </html>

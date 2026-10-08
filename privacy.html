@@ -4,22 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Let's Sip Privacy Policy</title>
-<style>
-  :root { --bg:#FDF6EC; --text:#1F3A2E; --muted:#5b6b62; --accent:#1F6B4A; --card:#fff; --line:#e7dccb; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#1C1C1E; --text:#EFE8DC; --muted:#a9a397; --accent:#7CC39B; --card:#26262a; --line:#3a3a3f; } }
-  body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Rounded", system-ui, sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-  nav { display:flex; gap:16px; margin-bottom:24px; font-weight:600; flex-wrap:wrap; }
-  a { color: var(--accent); }
-  h1 { font-size: 30px; line-height:1.2; }
-  h2 { margin-top: 32px; font-size: 21px; }
-  table { border-collapse: collapse; width: 100%; background: var(--card); font-size: 15px; }
-  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
-</style>
+<meta name="theme-color" content="#FBF6EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111A15" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="site.css">
 </head>
-<body><main>
-<nav><a href="index.html">Let's Sip</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+<body>
+<header class="nav">
+  <a class="brand" href="./">
+    <picture>
+      <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="assets/logo.png" alt="" width="36" height="36">
+    </picture>
+    <span>Let's Sip</span>
+  </a>
+  <nav>
+    <a href="./#features">Features</a>
+    <a href="./#privacy">Privacy</a>
+    <a href="./#shops">For shops</a>
+    <a href="support.html">Help</a>
+  </nav>
+</header>
+<main class="doc">
 <h1>Let's Sip Privacy Policy</h1>
 <p><strong>Effective date:</strong> September 28, 2026</p>
 <p>Let's Sip ("Let's Sip," "we," "us") is a social coffee app, operated by Alexis Becerra. We built it to collect as little about you as possible. This policy explains what we collect, what we don't, and the choices you have.</p>
@@ -49,8 +56,8 @@
 <h2>7. How long we keep information</h2>
 <table><thead><tr><th>Information</th><th>Kept for</th></tr></thead><tbody><tr><td>Current check-in</td><td>Until you check out, check in elsewhere, or 30 minutes</td></tr><tr><td>Chat messages</td><td>24 hours</td></tr><tr><td>Reports</td><td>Until resolved, then 30 days</td></tr><tr><td>Suspension records</td><td>Until the account is deleted</td></tr><tr><td>Server logs</td><td>About 7 days</td></tr><tr><td>Account, Sips, photos, comments, likes, tags, follows and blocks</td><td>Until you delete them or delete your account</td></tr></tbody></table>
 <h2>8. Your choices and rights</h2>
-<ul><li><strong>Change what's visible:</strong> in Settings → Privacy.</li><li><strong>Edit your profile:</strong> in Settings.</li><li><strong>Delete a Sip:</strong> at any time.</li><li><strong>Delete your account:</strong> Settings → Delete account. This permanently deletes your account and everything you've posted from our servers, and clears your visit history from your phone.</li><li><strong>Get a copy of your data:</strong> email us at <a href="mailto:alexis@becerramail.com">alexis@becerramail.com</a> and we'll send it within 30 days.</li></ul>
-<p><strong>California residents.</strong> Under the California Consumer Privacy Act (as amended by the CPRA), you have the right to know what personal information we collect, and to access, correct and delete it, without being treated differently for using these rights. We do not sell or share personal information as those terms are defined by California law. To make a request, email <a href="mailto:alexis@becerramail.com">alexis@becerramail.com</a>. We may need to confirm it's your account before acting on the request.</p>
+<ul><li><strong>Change what's visible:</strong> in Settings → Privacy.</li><li><strong>Edit your profile:</strong> in Settings.</li><li><strong>Delete a Sip:</strong> at any time.</li><li><strong>Delete your account:</strong> Settings → Delete account. This permanently deletes your account and everything you've posted from our servers, and clears your visit history from your phone.</li><li><strong>Get a copy of your data:</strong> email us at <a href="mailto:support@letssip.app">support@letssip.app</a> and we'll send it within 30 days.</li></ul>
+<p><strong>California residents.</strong> Under the California Consumer Privacy Act (as amended by the CPRA), you have the right to know what personal information we collect, and to access, correct and delete it, without being treated differently for using these rights. We do not sell or share personal information as those terms are defined by California law. To make a request, email <a href="mailto:support@letssip.app">support@letssip.app</a>. We may need to confirm it's your account before acting on the request.</p>
 <h2>9. Security</h2>
 <p>Data is encrypted in transit (HTTPS), and access to our database is restricted by security rules that enforce the privacy settings above. No system is perfectly secure, but we limit the risk by keeping as little data as we can.</p>
 <h2>10. Children</h2>
@@ -58,6 +65,25 @@
 <h2>11. Changes</h2>
 <p>If we make significant changes, we'll update the effective date and let you know in the app before the changes take effect.</p>
 <h2>12. Contact</h2>
-<p>Questions or requests: <strong><a href="mailto:alexis@becerramail.com">alexis@becerramail.com</a></strong><br>Alexis Becerra, San Bernardino, California</p>
-</main></body>
+<p>Questions or requests: <strong><a href="mailto:support@letssip.app">support@letssip.app</a></strong><br>Alexis Becerra, San Bernardino, California</p>
+</main>
+<footer class="footer">
+  <div>
+    <a class="brand small" href="./">
+      <picture>
+        <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="assets/logo.png" alt="" width="24" height="24">
+      </picture>
+      <span>Let's Sip</span>
+    </a>
+    <p>Made in San Bernardino, California.</p>
+  </div>
+  <nav>
+    <a href="support.html">Help &amp; contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:support@letssip.app">support@letssip.app</a>
+  </nav>
+</footer>
+</body>
 </html>
