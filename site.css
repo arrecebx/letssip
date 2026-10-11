@@ -130,6 +130,7 @@ main { overflow-x: clip; }
   font-weight: 700; padding: 14px 28px; border-radius: 14px;
 }
 .button:hover { background: var(--green-strong); }
+button.button { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
 
 /* Footer */
 .footer {

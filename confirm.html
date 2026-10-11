@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confirm your email — Let's Sip</title>
+<meta name="theme-color" content="#FBF6EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111A15" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/logo.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="./">
+    <picture>
+      <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+      <img src="assets/logo.png" alt="" width="36" height="36">
+    </picture>
+    <span>Let's Sip</span>
+  </a>
+  <nav>
+    <a href="./#features">Features</a>
+    <a href="./#privacy">Privacy</a>
+    <a href="./#shops">For shops</a>
+    <a href="support.html">Help</a>
+  </nav>
+</header>
+<main class="doc">
+<h1>Confirm your email</h1>
+<div id="ready">
+<p>Tap the button to finish creating your Let's Sip account.</p>
+<p><button class="button" id="confirm" type="button">Confirm my email</button></p>
+</div>
+<div id="working" hidden><p>Confirming…</p></div>
+<div id="done" hidden>
+<p><strong>You're all set ☕️</strong></p>
+<p>Your email is confirmed. Open Let's Sip on your iPhone and sign in with your email and password.</p>
+</div>
+<div id="failed" hidden>
+<p><strong>This link has expired or was already used.</strong></p>
+<p>If you already confirmed, just sign in to the app. Otherwise, sign up again in Let's Sip with the same email and we'll send a new link.</p>
+<p>Still stuck? Email <a href="mailto:support@letssip.app">support@letssip.app</a>.</p>
+</div>
+<script>
+(() => {
+  const SUPABASE_URL = "https://bcknlvhcmghztqwyqudq.supabase.co";
+  const PUBLISHABLE_KEY = "sb_publishable_qTO4Xby6sojNrfTWvzwipA_11AgFCo3";
+  const params = new URLSearchParams(location.search);
+  const tokenHash = params.get("token_hash");
+  const show = (id) => ["ready", "working", "done", "failed"].forEach((x) => { document.getElementById(x).hidden = x !== id; });
+  if (!tokenHash || params.get("type") !== "email") { show("failed"); return; }
+  // Keep the one-time token out of the address bar and browser history.
+  history.replaceState(null, "", location.pathname);
+  document.getElementById("confirm").addEventListener("click", async () => {
+    show("working");
+    try {
+      const response = await fetch(SUPABASE_URL + "/auth/v1/verify", {
+        method: "POST",
+        headers: { apikey: PUBLISHABLE_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "email", token_hash: tokenHash }),
+      });
+      if (!response.ok) { show("failed"); return; }
+      // Confirming signs this browser in; sign it straight back out (the app is where people use their account).
+      const session = await response.json().catch(() => ({}));
+      if (session.access_token) {
+        fetch(SUPABASE_URL + "/auth/v1/logout?scope=local", {
+          method: "POST", headers: { apikey: PUBLISHABLE_KEY, Authorization: "Bearer " + session.access_token },
+        }).catch(() => {});
+      }
+      show("done");
+    } catch {
+      show("failed");
+    }
+  });
+})();
+</script>
+</main>
+<footer class="footer">
+  <div>
+    <a class="brand small" href="./">
+      <picture>
+        <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="assets/logo.png" alt="" width="24" height="24">
+      </picture>
+      <span>Let's Sip</span>
+    </a>
+    <p>Made in San Bernardino, California.</p>
+  </div>
+  <nav>
+    <a href="support.html">Help &amp; contact</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:support@letssip.app">support@letssip.app</a>
+  </nav>
+</footer>
+</body>
+</html>
