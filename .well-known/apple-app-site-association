@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["FX2UW2T956.com.iesips.app"],
+        "components": [
+          { "/": "/confirm", "comment": "Email confirmation link: opens the app, which confirms and signs in" },
+          { "/": "/confirm.html" }
+        ]
+      }
+    ]
+  }
+}
