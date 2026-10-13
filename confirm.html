@@ -5,7 +5,7 @@
 <meta name="referrer" content="no-referrer">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Confirm your email — Let's Sip</title>
+<title>Let's Sip</title>
 <meta name="theme-color" content="#FBF6EC" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111A15" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/logo.png">
@@ -29,55 +29,34 @@
   </nav>
 </header>
 <main class="doc">
-<h1>Confirm your email</h1>
-<div id="ready">
+<h1 id="title">Let's Sip</h1>
+<noscript><p>This page needs JavaScript. Or open the link on your iPhone with Let's Sip installed.</p></noscript>
+<div id="confirm-ready" hidden>
 <p>Tap the button to finish creating your Let's Sip account.</p>
 <p><button class="button" id="confirm" type="button">Confirm my email</button></p>
 </div>
-<div id="working" hidden><p>Confirming…</p></div>
-<div id="done" hidden>
+<div id="reset-ready" hidden>
+<p>Choose a new password for your Let's Sip account.</p>
+<p><input id="password" type="password" autocomplete="new-password" minlength="6" placeholder="New password (at least 6 characters)" aria-label="New password"></p>
+<p><button class="button" id="reset" type="button">Save password</button></p>
+</div>
+<div id="working" hidden><p>One moment…</p></div>
+<div id="confirmed" hidden>
 <p><strong>You're all set ☕️</strong></p>
 <p>Your email is confirmed. Go back to Let's Sip to finish setting up. If you signed up on this iPhone, you'll be signed in automatically.</p>
 <p><a class="button" href="iesips://confirmed">Open Let's Sip</a></p>
 </div>
+<div id="reset-done" hidden>
+<p><strong>Password updated</strong></p>
+<p>Open Let's Sip and sign in with your new password.</p>
+<p><a class="button" href="iesips://signin">Open Let's Sip</a></p>
+</div>
 <div id="failed" hidden>
 <p><strong>This link has expired or was already used.</strong></p>
-<p>If you already confirmed, just sign in to the app. Otherwise, sign up again in Let's Sip with the same email and we'll send a new link.</p>
+<p id="failed-hint"></p>
 <p>Still stuck? Email <a href="mailto:support@letssip.app">support@letssip.app</a>.</p>
 </div>
-<script>
-(() => {
-  const SUPABASE_URL = "https://bcknlvhcmghztqwyqudq.supabase.co";
-  const PUBLISHABLE_KEY = "sb_publishable_qTO4Xby6sojNrfTWvzwipA_11AgFCo3";
-  const params = new URLSearchParams(location.search);
-  const tokenHash = params.get("token_hash");
-  const show = (id) => ["ready", "working", "done", "failed"].forEach((x) => { document.getElementById(x).hidden = x !== id; });
-  if (!tokenHash || params.get("type") !== "email") { show("failed"); return; }
-  // Keep the one-time token out of the address bar and browser history.
-  history.replaceState(null, "", location.pathname);
-  document.getElementById("confirm").addEventListener("click", async () => {
-    show("working");
-    try {
-      const response = await fetch(SUPABASE_URL + "/auth/v1/verify", {
-        method: "POST",
-        headers: { apikey: PUBLISHABLE_KEY, "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "email", token_hash: tokenHash }),
-      });
-      if (!response.ok) { show("failed"); return; }
-      // Confirming signs this browser in; sign it straight back out (the app is where people use their account).
-      const session = await response.json().catch(() => ({}));
-      if (session.access_token) {
-        fetch(SUPABASE_URL + "/auth/v1/logout?scope=local", {
-          method: "POST", headers: { apikey: PUBLISHABLE_KEY, Authorization: "Bearer " + session.access_token },
-        }).catch(() => {});
-      }
-      show("done");
-    } catch {
-      show("failed");
-    }
-  });
-})();
-</script>
+<script src="confirm.js"></script>
 </main>
 <footer class="footer">
   <div>

@@ -173,3 +173,7 @@ button.button { border: 0; font: inherit; font-weight: 700; cursor: pointer; }
   .cards { grid-template-columns: 1fr; }
   .shops > div { padding: 32px 20px; }
 }
+.doc input[type="password"] {
+  width: 100%; max-width: 420px; font: inherit; font-size: 17px; padding: 14px 16px;
+  border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--text);
+}

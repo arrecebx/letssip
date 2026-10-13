@@ -1,0 +1,6 @@
+# Not part of the website (Cloudflare skips these when serving the repo).
+.git
+wrangler.jsonc
+wrangler.toml
+README.md
+.nojekyll
